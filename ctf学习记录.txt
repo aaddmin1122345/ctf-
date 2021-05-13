@@ -1,0 +1,67 @@
+软件:
+1 bless(类似于winhex)把文件按照16进制打开
+2 binwalk 扫描文件是否包含隐藏内
+3 ssh -p url 使用端口连接ssh
+4 nc url 使用 nc连接远程主机
+5 githack url/.git 扫描泄漏的.git内容
+5 dirsearch 扫描网站后台目录
+6 yijian 强大的工具
+7 zip2john zip压缩包路径 >passwd.txt(获得hash文件);john passwd.txt 最终获得密码
+8 ida64 查看源代码,逆向相关
+9 sqlmap 扫描网站类型以及是否可以注入
+10 chrome 扩展插件(hackbar),类似于重发器
+11 base64转换 echo '需要转换的内容'  |base64
+12 nmap 端口扫描神器 nmap -A -T4 ip
+13 hping DDOS攻击 hping3 -S -c 1000 -d 4096  -d 64 -w 1111 --flood ip 
+14 arpspoof arp欺骗 arpspoof -i 网卡 -t 目标ip 网关
+15 nethogs 监控网络流量
+16 cansina 类似dirsearch cansina -u <site_url> -p <payload_file>
+17 checksec 检查文件信息(是否含有栈(zhan)溢出) checksec --file=文件
+18 图片是base64编码的可以借助html打开 <img src="data:image/jpg;base64,编码
+19 png图片16进制开头 89 50 4E 47
+20 stegsolve 修改图片颜色
+21 outguess outguess -k 密码-r 需要破解的文件名 -t 转出的文件名
+22 zsh配置文件里边加入 nsetopt prompt_cr prompt_sp 解决运行c的时候多出来一个百分号
+23 tplmap tplmap -u 链接 Simple_SSTI_2
+24 lsof -i 端口号 查看端口占用
+25 ps -aux |grep 软件名 查看软件进程
+26 killall -9 软件名   强制杀死软件
+27 pngcheck 图片  检测图片是否有高度错误
+28 010editor 类似于winhex bless
+29 post传参 curl -d 'what=flag' url 给url传递"what=flag"
+_______________文件头______________________________________________
+
+JPEG (jpg)，文件头：FFD8FF
+PNG (png)，文件头：89504E47
+GIF (gif)，文件头：47494638
+TIFF (tif)，文件头：49492A00
+Windows Bitmap (bmp)，文件头：424D
+CAD (dwg)，文件头：41433130
+Adobe Photoshop (psd)，文件头：38425053
+Rich Text Format (rtf)，文件头：7B5C727466
+XML (xml)，文件头：3C3F786D6C
+HTML (html)，文件头：68746D6C3E
+Email [thorough only] (eml)，文件头：44656C69766572792D646174653A
+Outlook Express (dbx)，文件头：CFAD12FEC5FD746F
+Outlook (pst)，文件头：2142444E
+MS Word/Excel (xls.or.doc)，文件头：D0CF11E0
+MS Access (mdb)，文件头：5374616E64617264204A
+WordPerfect (wpd)，文件头：FF575043
+Adobe Acrobat (pdf)，文件头：255044462D312E
+Quicken (qdf)，文件头：AC9EBD8F
+Windows Password (pwl)，文件头：E3828596
+ZIP Archive (zip)，文件头：504B0304
+RAR Archive (rar)，文件头：52617221
+Wave (wav)，文件头：57415645
+AVI (avi)，文件头：41564920
+Real Audio (ram)，文件头：2E7261FD
+Real Media (rm)，文件头：2E524D46
+MPEG (mpg)，文件头：000001BA
+MPEG (mpg)，文件头：000001B3
+Quicktime (mov)，文件头：6D6F6F76
+Windows Media (asf)，文件头：3026B2758E66CF11
+MIDI (mid)，文件头：4D546864
+______________________________________________________________
+png图片19 20 是长度 23 24 是宽 16进制
+
+ 
