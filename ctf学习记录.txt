@@ -55,7 +55,7 @@
 43 git stash pop/list
 44 svn泄漏 dvcs-ripper 工具中的 rip-svn.pl rip-svn -u url  cd .svn;cat wc.db |grep -a flag 然后慢慢找
 45 rip-hg -u url/.hg/ hg status;如果服务端删除了 flag 文件的话，那么可尝试从历史记录里寻找。路径是 .hg/store/data/
-46 提交代码 git add . && git push
+46 提交代码 git add . && git push git add git commit -m "提交信息"
 47 X-Forwarded-For:123.123.123.123   模拟ip
     Referer:https://www.google.com   模拟网页请求
 48 flask-session-cookie-manager
